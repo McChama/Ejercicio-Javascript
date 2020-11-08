@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="icon" type="image/png" href="media/1.ico">
     <script src="scripts/dice.js"></script>
     <title>Ejercicio Javascript</title>
 </head>
@@ -23,32 +24,34 @@
     </section>
     
     <!-- Cuerpo de la página-->
-    <div>
-        <div>
-            <!-- Titulo de la página -->
-            <div>
-                <h1>Manejo del DOM con Javascript</h1>
-            </div>
-
-            <!-- Articulo de la página -->
-            <div>
-                <h2>Bienvenido al juego de dados</h2>
-
-                <label for="">Disponible para gastar</label>
-                <input type="text"><br><br>
-
-                <label for="">¿Cu&aacute;nto quieres apostar?</label>
-                <input type="text"><br><br>
-
-                <input type="button" value="Lanzar dados">
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <label>Disponible para gastar</label>
+                    <input class="input is-small" type="number"><br><br>
+        
+                    <label>¿Cu&aacute;nto quieres apostar?</label>
+                    <input class="input is-small" type="number"><br><br>
+                    <div class="field is-grouped is-centered">
+                        <button class="button is-dark mx-5">Jugar ahora</button>
+                        <button class="button is-dark mx-5 px-5">Retirarse</button>
+                    </div>
+                </div> 
+                <div class="column">
+                    
+                </div> 
+                <div class="column">
+                    
+                </div> 
             </div>
         </div>
     </div>
     
-    <footer>
-        <div>
+    <footer class="footer">
+        <div class="content has-text-centered">
             <p>
-                &copy; Elaborado por <a href="https://github.com/McChama/">Emiliano V&aacute;zquez Banda</a>
+                &copy; Elaborado por <a href="https://github.com/McChama/" target="_blank">Emiliano V&aacute;zquez Banda</a>
             </p>
         </div>
     </footer>
