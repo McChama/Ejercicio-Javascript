@@ -8,7 +8,7 @@
     <script src="scripts/dice.js"></script>
     <title>Ejercicio Javascript</title>
 </head>
-<body>
+<body class="has-navbar-fixed-top">
     <!-- Cabecera de la pagina -->
     <section class="hero is-dark is-bold">
         <div class="hero-body">
@@ -22,12 +22,36 @@
             </div>
         </div>
     </section>
-    <nav class="navbar is-light">
+    <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
+            <!-- Imagen -->
             <a class="navbar-item" href="">
                 <img src="media/logo.png" width="112" height="30">
             </a>
-
+            <!-- Boton hamburguesa -->
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarItems" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- Items -->
+        <div class="navbar-menu" id="navbarItems">
+            <div class="navbar-start pl-5">
+                <a class="navbar-item">Inicio</a>
+                <a class="navbar-item">Ejercicios</a>
+                <!-- Menu desplegable -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">M&aacute;s</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">Acerca de</a>
+                        <a class="navbar-item">Curriculum</a>
+                        <a class="navbar-item">Contacto</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">Dudas y sugerencias</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
     
