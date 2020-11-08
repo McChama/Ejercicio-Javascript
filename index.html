@@ -59,7 +59,25 @@
     <section class="section">
         <div class="container">
             <div class="columns">
+                <!-- Reglas -->
                 <div class="column">
+                    <div class="columns">
+                        <div class="column"><h2 class="subtitle">Reglas del juego</h2></div>
+                    </div>
+                    <div class="columns">
+                        <div class="column pl-5 is-primary"><p class="bd-notification is-info">El jugador lanza los dados.</p></div>
+                    </div>
+                    <div class="columns">
+                        <div class="column pl-5"></div>
+                    </div>
+                    <div class="columns">
+                        <div class="column pl-5"><p>Si saca un 2, 3 ó 12, pierde su apuesta. Se dice que ha hecho un « craps ».</p></div>
+                    </div>    
+                </div> 
+
+                <!-- Formulario -->
+                <div class="column">
+                    <h2 class="subtitle"><strong>Realiza tu apuesta</strong></h2>
                     <label>Disponible para gastar</label>
                     <input class="input is-small" type="number"><br><br>
         
@@ -67,12 +85,10 @@
                     <input class="input is-small" type="number"><br><br>
                     <div class="field is-grouped is-centered">
                         <button class="button is-dark mx-5">Jugar ahora</button>
-                        <button class="button is-dark mx-5 px-5">Retirarse</button>
+                        <button id="Retirarse" class="button is-dark mx-5 px-5" style="visibility:hidden;">Retirarse</button>
                     </div>
-                </div> 
-                <div class="column">
-                    
-                </div> 
+                </div>
+                <!-- Resultados --> 
                 <div class="column">
                     
                 </div> 
