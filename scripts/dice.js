@@ -1,3 +1,24 @@
+var Evaluador = 1;
+var Saldo = document.getElementsByClassName("Saldo");
+var Apuesta = document.getElementsByClassName("Apuesta");
+var Botones = document.getElementsByClassName("Btn");
+
+function Evaluar(){
+    switch(Evaluador){
+        /*Inicio de juego*/
+        case 1:
+            InicioJuego();
+            break;
+        /*Primer lanzamiento*/
+        case 2:
+            PrimerLanzamiento();
+            break;
+    }
+}
+function InicioJuego(){
+    
+}
+/*
 function LanzarDados(){
     var D1 = parseInt(Math.random() * (6 - 0) + 1);
     var D2 = parseInt(Math.random() * (6 - 0) + 1);
@@ -8,12 +29,13 @@ function LanzarDados(){
 
 function EvaluarResultado(Res){
     if(Res == 7 || Res == 11){
-        /*Gano*/
+        /*Gano
     }
     if(Res == 2 || Res == 3 || Res == 12){
-        /*Perdio*/
+        /*Perdio
     }
     if(Res == 4 || Res == 5 || Res == 6 || Res == 8 || Res == 9 || Res == 10){
-        /*Se establece punto*/
+        /*Se establece punto
     }
 }
+*/
