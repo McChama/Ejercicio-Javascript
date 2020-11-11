@@ -2,3 +2,24 @@
     /*Antes de empezar un nuevo juego*/
     display: none;
  }
+
+ /* Clases de la animacion */
+ .Banner{
+    position: relative;
+    visibility: hidden;
+}
+
+.Banner-Inicia {
+    visibility: visible;
+    animation-name: AnimacionIniciaJuego; /*Link al frame de animacion*/
+    animation-duration: 4s; /*Duracion de la animacion*/
+    animation-timing-function: cubic-bezier(1, 0, 0, 1); /*Modo de progreso de animacion*/
+    animation-fill-mode: forwards; /*Quedate en tu ultima posicion al terminar la animacion*/
+}
+
+/*Movimiento que realizara la animacion*/
+@keyframes AnimacionIniciaJuego {
+    0%   {left: -170%; top: 0px;}
+    50%  {left: 10%; top: 0px;}
+    100% {left: 100%; top: 0px;}
+}

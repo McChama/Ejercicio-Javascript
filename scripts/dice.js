@@ -1,14 +1,41 @@
+/* Declaracion de variables globales */
 var Evaluador = 1;
 var Saldo;
 var Apuesta;
 var Botones;
 
+/* Iniciar la animacion */
+function MostrarAnimacion(){
+    var Animacion = document.getElementById("div");
+    Animacion.classList.toggle("Banner-Inicia");
+    
+    setTimeout(function(){
+        Animacion.classList.toggle("Banner-Inicia");
+    },4000);
+}
+
+/* Inicializacion de contenedores de etiquetas por clase */
 function CargarVariables() {
     Saldo = document.getElementsByClassName("Saldo");
     Apuesta = document.getElementsByClassName("Apuesta");
     Botones = document.getElementsByClassName("Botones");
 }
 
+/* Habilitar etiquetas de saldo */
+function MostrarSaldo() {
+    setTimeout(function (){
+        Saldo[0].style.display = "initial";
+        Saldo[1].style.display = "initial";
+        Saldo[1].disabled = false;   
+    },4000);  
+}
+
+function InicioJuego(){
+    MostrarAnimacion();
+    MostrarSaldo();
+    
+    
+}
 function Evaluar(){
     
     switch(Evaluador){
@@ -22,9 +49,7 @@ function Evaluar(){
             break;
     }
 }
-function InicioJuego(){
-    
-}
+
 /*
 function LanzarDados(){
     var D1 = parseInt(Math.random() * (6 - 0) + 1);
