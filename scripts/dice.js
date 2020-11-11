@@ -1,9 +1,16 @@
 var Evaluador = 1;
-var Saldo = document.getElementsByClassName("Saldo");
-var Apuesta = document.getElementsByClassName("Apuesta");
-var Botones = document.getElementsByClassName("Btn");
+var Saldo;
+var Apuesta;
+var Botones;
+
+function CargarVariables() {
+    Saldo = document.getElementsByClassName("Saldo");
+    Apuesta = document.getElementsByClassName("Apuesta");
+    Botones = document.getElementsByClassName("Botones");
+}
 
 function Evaluar(){
+    
     switch(Evaluador){
         /*Inicio de juego*/
         case 1:
@@ -16,7 +23,7 @@ function Evaluar(){
     }
 }
 function InicioJuego(){
-    Saldo[1].enable;
+    
 }
 /*
 function LanzarDados(){
