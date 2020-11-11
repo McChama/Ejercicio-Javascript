@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" type="image/png" href="media/favico.ico">
     <script src="scripts/dice.js"></script>
     <title>Ejercicio Javascript</title>
-    <style>
-        .Apuesta, #BD{
-           display: none;
-        }
-    </style>
 </head>
-<body class="has-navbar-fixed-top">
+<body class="has-navbar-fixed-top" onload="CargarVariables();">
     <!-- Cabecera de la pagina -->
     <section class="hero is-dark is-bold">
         <div class="hero-body">
@@ -107,7 +105,7 @@
                     <div class="level">
                         <div class="level-left">
                             <div class="level-item">
-                                <button id="BI" class="Btn button is-dark" class="level-left button is-dark" onclick="Evaluar();">Jugar ahora</button>
+                                <button id="BI" class="Btn button is-dark" class="level-left button is-dark" onclick="Evaluar();">Nuevo juego</button>
                             </div>
                         </div>
                         <div class="level-right">
