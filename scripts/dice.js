@@ -16,7 +16,7 @@ function Evaluar(){
     }
 }
 function InicioJuego(){
-    
+    Saldo[1].enable;
 }
 /*
 function LanzarDados(){

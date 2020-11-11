@@ -7,6 +7,11 @@
     <link rel="icon" type="image/png" href="media/favico.ico">
     <script src="scripts/dice.js"></script>
     <title>Ejercicio Javascript</title>
+    <style>
+        .Apuesta, #BD{
+           display: none;
+        }
+    </style>
 </head>
 <body class="has-navbar-fixed-top">
     <!-- Cabecera de la pagina -->
@@ -90,15 +95,28 @@
                 <!-- Formulario -->
                 <div class="column">
                     <h2 class="subtitle"><strong>Inicia un nuevo juego</strong></h2>
-                    <label>Disponible para gastar</label>
-                    <input class="input is-small" type="number"><br><br>
+
+                    <label class="Saldo">Disponible para gastar</label>
+                    <input class="Saldo input" type="number" placeholder="Ingresa el fondo disponible a gastar" disabled>
+                    <br class="Saldo"><br class="Saldo">
         
-                    <label>¿Cu&aacute;nto quieres apostar?</label>
-                    <input class="input is-small" type="number"><br><br>
-                    <div class="field is-grouped is-centered">
-                        <button class="button is-dark mx-5" onclick="LanzarDados();">Jugar ahora</button>
-                        <button id="Retirarse" class="button is-dark mx-5 px-5" style="visibility:hidden;">Retirarse</button>
+                    <label class="Apuesta">¿Cu&aacute;nto quieres apostar?</label>
+                    <input class="Apuesta input" type="number">
+                    <br class="Apuesta"><br class="Apuesta">
+
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <button id="BI" class="Btn button is-dark" class="level-left button is-dark" onclick="Evaluar();">Jugar ahora</button>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <button id="BD" class="Btn button is-dark" class="button is-dark">Retirarse</button>
+                            </div>
+                        </div>                        
                     </div>
+
                 </div>
 
                 <!-- Resultados --> 
