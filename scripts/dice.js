@@ -3,6 +3,21 @@ var Evaluador = 1;
 var Saldo;
 var Apuesta;
 var Botones;
+var BotonIzq;
+var BotonDer;
+var MensajesBotones = ["Nuevo juego","Jugar ahora","Lanzar dados","Retirarse"];
+
+/* Inicializacion de contenedores de etiquetas */
+function CargarVariables() {
+    /* Por ID's */
+    BotonIzq = document.getElementById("BtnIzq");
+    BotonDer = document.getElementById("BtnDer");
+
+    /* Por clases */
+    Saldo = document.getElementsByClassName("Saldo");
+    Apuesta = document.getElementsByClassName("Apuesta");
+    Botones = document.getElementsByClassName("Botones");
+}
 
 /* Iniciar la animacion */
 function MostrarAnimacion(){
@@ -14,38 +29,83 @@ function MostrarAnimacion(){
     },4000);
 }
 
-/* Inicializacion de contenedores de etiquetas por clase */
-function CargarVariables() {
-    Saldo = document.getElementsByClassName("Saldo");
-    Apuesta = document.getElementsByClassName("Apuesta");
-    Botones = document.getElementsByClassName("Botones");
-}
-
-/* Habilitar etiquetas de saldo */
+/* Mostrar saldo */
 function MostrarSaldo() {
-    setTimeout(function (){
-        Saldo[0].style.display = "initial";
-        Saldo[1].style.display = "initial";
-        Saldo[1].disabled = false;   
-    },4000);  
+    Saldo[0].style.display = "initial";
+    Saldo[1].style.display = "initial";
 }
 
+/* Ocultar saldo */
+function OcultarSaldo() {
+    Saldo[0].style.display = "none";
+    Saldo[1].style.display = "none";
+}
+
+/* Habilitar saldo */
+function HabilitarSaldo(){
+    Saldo[1].disabled = false;
+}
+
+/* Bloquear saldo */
+function BloquearSaldo(){
+    Saldo[1].disabled = true;
+}
+
+/* Mostrar apuesta */
+function MostrarApuesta(){
+    Apuesta[0].style.display = "initial";
+    Apuesta[1].style.display = "initial";
+}
+
+/* Ocultar apuesta */
+function OcultarApuesta(){
+    Apuesta[0].style.display = "none";
+    Apuesta[1].style.display = "none";
+}
+
+/* Habilitar apuesta */
+function HabilitarApuesta(){
+    Apuesta[1].disabled = false;
+}
+
+/* Deshabilitar apuesta */
+function DeshabilitarApuesta(){
+    Apuesta[1].disabled = true;
+}
+
+/* Mensajes boton izquierdo */
+function MensajeBotonIzq() {
+    BotonIzq.innerHTML = MensajesBotones[1];
+}
+
+/*Se inicio el juego*/
 function InicioJuego(){
     MostrarAnimacion();
-    MostrarSaldo();
-    
-    
+    setTimeout(() => {
+        MostrarSaldo();
+        HabilitarSaldo();
+        OcultarApuesta();
+        DeshabilitarApuesta();
+        MensajeBotonIzq();    
+    }, 4000);
 }
-function Evaluar(){
-    
+
+/* Se ingresa el fondo y se espera lanzar los dados o retirarse */
+function IngresaFondo(){
+    BloquearSaldo();
+    MostrarApuesta();
+}
+
+function Evaluar(){    
     switch(Evaluador){
         /*Inicio de juego*/
         case 1:
             InicioJuego();
+            Evaluador++;
             break;
         /*Primer lanzamiento*/
         case 2:
-            PrimerLanzamiento();
+            IngresaFondo();
             break;
     }
 }
@@ -58,7 +118,6 @@ function LanzarDados(){
     
     EvaluarResultado();
 }
-
 function EvaluarResultado(Res){
     if(Res == 7 || Res == 11){
         /*Gano
