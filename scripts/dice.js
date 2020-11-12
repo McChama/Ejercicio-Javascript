@@ -33,12 +33,16 @@ function MostrarAnimacion(){
 function MostrarSaldo() {
     Saldo[0].style.display = "initial";
     Saldo[1].style.display = "initial";
+    Saldo[2].style.display = "initial";
+    Saldo[3].style.display = "initial";
 }
 
 /* Ocultar saldo */
 function OcultarSaldo() {
     Saldo[0].style.display = "none";
     Saldo[1].style.display = "none";
+    Saldo[2].style.display = "none";
+    Saldo[3].style.display = "none";
 }
 
 /* Habilitar saldo */
@@ -55,12 +59,16 @@ function BloquearSaldo(){
 function MostrarApuesta(){
     Apuesta[0].style.display = "initial";
     Apuesta[1].style.display = "initial";
+    Apuesta[2].style.display = "initial";
+    Apuesta[3].style.display = "initial";
 }
 
 /* Ocultar apuesta */
 function OcultarApuesta(){
     Apuesta[0].style.display = "none";
     Apuesta[1].style.display = "none";
+    Apuesta[2].style.display = "none";
+    Apuesta[3].style.display = "none";
 }
 
 /* Habilitar apuesta */
@@ -73,9 +81,32 @@ function DeshabilitarApuesta(){
     Apuesta[1].disabled = true;
 }
 
+/* Mostrar boton izquierdo */
+function MostrarBotonIzq(){
+    BotonIzq.style.display = "initial";
+}
+
+/* Ocultar boton izquierdo */
+function OcultarBotonIzq(){
+    BotonIzq.style.display = "none";
+}
 /* Mensajes boton izquierdo */
-function MensajeBotonIzq() {
-    BotonIzq.innerHTML = MensajesBotones[1];
+function MensajeBotonIzq(i) {
+    BotonIzq.innerHTML = MensajesBotones[i];
+}
+
+/* Mostrar boton derecho */
+function MostrarBotonDer(){
+    BotonDer.style.display = "initial";
+}
+
+/* Ocultar boton derecho */
+function OcultarBotonDer(){
+    BotonDer.style.display = "none";
+}
+/* Mensajes boton derecho */
+function MensajeBotonDer(i) {
+    BotonDer.innerHTML = MensajesBotones[i];
 }
 
 /*Se inicio el juego*/
@@ -84,16 +115,30 @@ function InicioJuego(){
     setTimeout(() => {
         MostrarSaldo();
         HabilitarSaldo();
+
         OcultarApuesta();
         DeshabilitarApuesta();
-        MensajeBotonIzq();    
+
+        MostrarBotonIzq();
+        OcultarBotonDer();
+
+        MensajeBotonIzq(1);
     }, 4000);
 }
 
 /* Se ingresa el fondo y se espera lanzar los dados o retirarse */
 function IngresaFondo(){
+    MostrarSaldo();
     BloquearSaldo();
+
     MostrarApuesta();
+    HabilitarApuesta();
+
+    MostrarBotonIzq();
+    MostrarBotonDer();
+
+    MensajeBotonIzq(2);
+    MensajeBotonDer(3);
 }
 
 function Evaluar(){    
