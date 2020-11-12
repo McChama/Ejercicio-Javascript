@@ -9,6 +9,7 @@ var MensajesBotones = ["Nuevo juego","Jugar ahora","Lanzar dados","Retirarse"];
 
 /* Inicializacion de contenedores de etiquetas */
 function CargarVariables() {
+    alert("Los scripts no han sido desarrollados en su totalidad aún");
     /* Por ID's */
     BotonIzq = document.getElementById("BtnIzq");
     BotonDer = document.getElementById("BtnDer");
