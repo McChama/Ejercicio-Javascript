@@ -5,7 +5,10 @@ var Apuesta;
 var Botones;
 var BotonIzq;
 var BotonDer;
+var Columna1;
+var Columna3;
 var MensajesBotones = ["Nuevo juego","Jugar ahora","Lanzar dados","Retirarse"];
+
 
 /* Inicializacion de contenedores de etiquetas */
 function CargarVariables() {
@@ -13,6 +16,8 @@ function CargarVariables() {
     /* Por ID's */
     BotonIzq = document.getElementById("BtnIzq");
     BotonDer = document.getElementById("BtnDer");
+    Columna1 = document.getElementById("Columna1");
+    Columna3 = document.getElementById("Columna3");
 
     /* Por clases */
     Saldo = document.getElementsByClassName("Saldo");
@@ -20,9 +25,17 @@ function CargarVariables() {
     Botones = document.getElementsByClassName("Botones");
 }
 
-/* Iniciar la animacion */
-function MostrarAnimacion(){
-    var Animacion = document.getElementById("div");
+/* Animaciones */
+function AnimacionInicio(){
+    var Animacion = document.getElementById("Animacion-Inicio");
+    Animacion.classList.toggle("Banner-Inicia");
+    
+    setTimeout(function(){
+        Animacion.classList.toggle("Banner-Inicia");
+    },4000);
+}
+function AnimacionDados(){
+    var Animacion = document.getElementById("Animacion-Dados");
     Animacion.classList.toggle("Banner-Inicia");
     
     setTimeout(function(){
@@ -30,100 +43,123 @@ function MostrarAnimacion(){
     },4000);
 }
 
-/* Mostrar saldo */
+/* Visibilidad de las columnas */
+function MostrarColumna1(){
+    Columna1.style.display = "initial";
+}
+function OcultarColumna1(){
+    Columna1.style.display = "none";
+}
+
+function MostrarColumna3(){
+    Columna3.style.display = "initial";
+}
+function OcultarColumna3(){
+    Columna3.style.display = "none";
+}
+
+/* Funciones de las etiquetas del saldo */
 function MostrarSaldo() {
     Saldo[0].style.display = "initial";
     Saldo[1].style.display = "initial";
     Saldo[2].style.display = "initial";
     Saldo[3].style.display = "initial";
 }
-
-/* Ocultar saldo */
 function OcultarSaldo() {
     Saldo[0].style.display = "none";
     Saldo[1].style.display = "none";
     Saldo[2].style.display = "none";
     Saldo[3].style.display = "none";
 }
-
-/* Habilitar saldo */
 function HabilitarSaldo(){
     Saldo[1].disabled = false;
 }
-
-/* Bloquear saldo */
 function BloquearSaldo(){
     Saldo[1].disabled = true;
 }
 
-/* Mostrar apuesta */
+/* Funciones de las etiquetas de la apuesta */
 function MostrarApuesta(){
     Apuesta[0].style.display = "initial";
     Apuesta[1].style.display = "initial";
     Apuesta[2].style.display = "initial";
     Apuesta[3].style.display = "initial";
 }
-
-/* Ocultar apuesta */
 function OcultarApuesta(){
     Apuesta[0].style.display = "none";
     Apuesta[1].style.display = "none";
     Apuesta[2].style.display = "none";
     Apuesta[3].style.display = "none";
 }
-
-/* Habilitar apuesta */
 function HabilitarApuesta(){
     Apuesta[1].disabled = false;
 }
-
-/* Deshabilitar apuesta */
-function DeshabilitarApuesta(){
+function BloquearApuesta(){
     Apuesta[1].disabled = true;
 }
 
-/* Mostrar boton izquierdo */
+/* Funciones boton izquierdo */
 function MostrarBotonIzq(){
     BotonIzq.style.display = "initial";
 }
-
-/* Ocultar boton izquierdo */
 function OcultarBotonIzq(){
     BotonIzq.style.display = "none";
 }
-/* Mensajes boton izquierdo */
+function HabilitarBotonIzq(){
+    BotonIzq.disabled = false;
+}
+function BloquearBotonIzq(){
+    BotonIzq.disabled = true;
+}
 function MensajeBotonIzq(i) {
     BotonIzq.innerHTML = MensajesBotones[i];
 }
 
-/* Mostrar boton derecho */
+/* Funciones boton derecho */
 function MostrarBotonDer(){
     BotonDer.style.display = "initial";
 }
-
-/* Ocultar boton derecho */
 function OcultarBotonDer(){
     BotonDer.style.display = "none";
 }
-/* Mensajes boton derecho */
+function HabilitarBotonDer(){
+    BotonDer.disabled = false;
+}
+function BloquearBotonDer(){
+    BotonDer.disabled = true;
+}
 function MensajeBotonDer(i) {
     BotonDer.innerHTML = MensajesBotones[i];
 }
 
+/* Calculo de los dados */
+function CalcularDados(){
+    var D1 = parseInt(Math.random() * (6 - 0) + 1);
+    var D2 = parseInt(Math.random() * (6 - 0) + 1);
+    var Res = D1 + D2;
+}
+
 /*Se inicio el juego*/
 function InicioJuego(){
-    MostrarAnimacion();
+    AnimacionInicio();
     setTimeout(() => {
+        MostrarColumna1();
+        MostrarColumna3();
+
         MostrarSaldo();
         HabilitarSaldo();
 
         OcultarApuesta();
-        DeshabilitarApuesta();
+        BloquearApuesta();
 
         MostrarBotonIzq();
         OcultarBotonDer();
 
+        HabilitarBotonIzq();
+        BloquearBotonDer();
+
         MensajeBotonIzq(1);
+        MensajeBotonDer(3);
     }, 4000);
 }
 
@@ -138,8 +174,31 @@ function IngresaFondo(){
     MostrarBotonIzq();
     MostrarBotonDer();
 
+    HabilitarBotonIzq();
+    HabilitarBotonDer();
+
     MensajeBotonIzq(2);
     MensajeBotonDer(3);
+}
+
+/* Se lanzan los dados */
+function LanzarDados(){
+    MostrarSaldo();
+    BloquearSaldo();
+
+    MostrarApuesta();
+    BloquearApuesta();
+
+    MostrarBotonIzq();
+    MostrarBotonDer();
+
+    BloquearBotonIzq();
+    BloquearBotonDer();
+
+    MensajeBotonIzq(2);
+    MensajeBotonDer(3);
+
+    CalcularDados();
 }
 
 function Evaluar(){    
@@ -147,23 +206,22 @@ function Evaluar(){
         /*Inicio de juego*/
         case 1:
             InicioJuego();
-            Evaluador++;
+            Evaluador = 2;
             break;
         /*Primer lanzamiento*/
         case 2:
             IngresaFondo();
+            Evaluador = 3;
+            break;
+        case 3:
+            LanzarDados();
             break;
     }
 }
 
+
+
 /*
-function LanzarDados(){
-    var D1 = parseInt(Math.random() * (6 - 0) + 1);
-    var D2 = parseInt(Math.random() * (6 - 0) + 1);
-    var Res = D1 + D2;
-    
-    EvaluarResultado();
-}
 function EvaluarResultado(Res){
     if(Res == 7 || Res == 11){
         /*Gano
