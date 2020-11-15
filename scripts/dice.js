@@ -12,7 +12,6 @@ var MensajesBotones = ["Nuevo juego","Jugar ahora","Lanzar dados","Retirarse"];
 
 /* Inicializacion de contenedores de etiquetas */
 function CargarVariables() {
-    alert("Los scripts no han sido desarrollados en su totalidad aún");
     /* Por ID's */
     BotonIzq = document.getElementById("BtnIzq");
     BotonDer = document.getElementById("BtnDer");
@@ -28,12 +27,13 @@ function CargarVariables() {
 /* Animaciones */
 function AnimacionInicio(){
     var Animacion = document.getElementById("Animacion-Inicio");
-    Animacion.classList.toggle("Banner-Inicia");
+    Animacion.classList.toggle("Inicia");
     
     setTimeout(function(){
-        Animacion.classList.toggle("Banner-Inicia");
+        Animacion.classList.toggle("Inicia");
     },4000);
 }
+/*
 function AnimacionDados(){
     var Animacion = document.getElementById("Animacion-Dados");
     Animacion.classList.toggle("Banner-Inicia");
@@ -42,7 +42,7 @@ function AnimacionDados(){
         Animacion.classList.toggle("Banner-Inicia");
     },4000);
 }
-
+*/
 /* Visibilidad de las columnas */
 function MostrarColumna1(){
     Columna1.style.display = "initial";
