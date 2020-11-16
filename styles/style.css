@@ -2,64 +2,58 @@
 /*Antes de empezar un nuevo juego*/
 .Apuesta, .Saldo, #BtnDer, #Columna1, #Columna3{display: none;}
 
-                                        /* Contenedores animaciones */
-.Banner{
-    position: relative;
-    visibility: hidden;
-}
+                                        /* Animaciones */
+.Banner{position: relative; visibility: hidden;}
+        
 /* Inicia el juego */
-.Inicia {
-    visibility: visible;
-    animation-name: AnimacionInicia; /*Link al frame de animacion*/
-    animation-duration: 4s; /*Duracion de la animacion*/
-    animation-timing-function: cubic-bezier(1, 0, 0, 1); /*Modo de progreso de animacion*/
-    animation-fill-mode: forwards; /*Quedate en tu ultima posicion al terminar la animacion*/
-}
+    .Inicia {visibility: visible; animation: Inicio 4s cubic-bezier(1, 0, 0, 1) forwards;}
+        
+/* Lanzamiento dados */
+    #cara img {width: 100px; height: 100px; border-radius: 15px;}
+    #Animacion-Dados .hero{top:20%;  border-radius: 10px;}
 
-                                        /* Lanzamiento dados */
-#cara img {width: 100px; height: 100px; border-radius: 15px;}
+    .Desvanecido{visibility: visible; animation: Desvanecido 5s forwards;}
 
-#Animacion-Dados{animation: Desvanecido 5s;}
-#Animacion-Dados .hero{border-radius: 10px;}
-.contenedor{perspective: 2000px; perspective-origin: 0px -700px; transition: 0.5s;}
-.contenedor:hover{transform: scale(1.2)}
+    .contenedor{perspective: 2000px; perspective-origin: 0px -700px; transition: 0.5s;}
+    .contenedor:hover{transform: scale(1.2)}
 
+    .cubo{
+        visibility: visible;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: Girar 1s forwards;  
+    }
 
-
-.cubo{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: Girar 1s forwards;   
-}
-
-.cara{position: absolute; width: 100%; height: 100%;}
-#Cara1{ transform: translateZ(50px); } 
-#Cara2{ transform: translateX(50px) rotateY(90deg); }
-#Cara3{ transform: translateZ(-50px);}
-#Cara4{ transform: translateX(-50px) rotateY(90deg);}
-#Cara5{ transform: translateY(-50px) rotateX(90deg);}
-#Cara6{ transform: translateY(50px) rotateX(90deg); }
+    .cara{position: absolute; width: 100%; height: 100%;}
+    #Cara1{ transform: translateZ(50px); } 
+    #Cara2{ transform: translateX(50px) rotateY(90deg); }
+    #Cara3{ transform: translateZ(-50px);}
+    #Cara4{ transform: translateX(-50px) rotateY(90deg);}
+    #Cara5{ transform: translateY(-50px) rotateX(90deg);}
+    #Cara6{ transform: translateY(50px) rotateX(90deg); }
 
 
                                         /* Conjunto animaciones */
 /* Banner inicia juego */
-@keyframes AnimacionInicia {
-    0%   {left: -170%; top: 0px;}
-    50%  {left: 10%; top: 0px;}
-    100% {left: 100%; top: 0px;}
-}
+    @keyframes Inicio {
+        0%   {left: -170%; top: 0px;}
+        50%  {left: 10%; top: 0px;}
+        100% {left: 100%; top: 0px;}
+    }
 
 /* Desvanecido del banner de los dados */
-@keyframes Desvanecido{
-    0% { opacity: 0;}
-    50% { opacity: 1;}
-    100% { opacity: 0;}
-}
+    @keyframes Desvanecido{
+        0% {opacity: 0;}
+        20% {opacity: 1;}
+        80% {opacity: 1;}
+        100%{opacity: 0;}
+    }
 
 /* Lanzamiento dados */ 
-@keyframes Girar{
-    from{ transform: rotateY(0deg) rotateX(0deg); }
-    to{ transform: rotateY(90deg) rotateX(90deg); }
-}
+    @keyframes Girar{
+        0%{left: 100px; top: -200px; transform: rotateY(-360deg) rotateX(-180deg);}
+        50%{left: -25px; top: 100px;}
+        100%{left: 0px; top: 0px; transform: rotateY(90deg) rotateX(90deg);}
+    }

@@ -26,23 +26,30 @@ function CargarVariables() {
 
 /* Animaciones */
 function AnimacionInicio(){
-    var Animacion = document.getElementById("Animacion-Inicio");
-    Animacion.classList.toggle("Inicia");
+    var Inicio = document.getElementById("Animacion-Inicio");
+    Inicio.classList.toggle("Inicia");
     
     setTimeout(function(){
-        Animacion.classList.toggle("Inicia");
+        Inicio.classList.toggle("Inicia");
     },4000);
 }
-/*
+
 function AnimacionDados(){
-    var Animacion = document.getElementById("Animacion-Dados");
-    Animacion.classList.toggle("Banner-Inicia");
-    
+    var Desvanecido = document.getElementById("Animacion-Dados");
+    var Dado1 = document.getElementById("Dado1");
+    var Dado2 = document.getElementById("Dado2");
+
+    Desvanecido.classList.toggle("Desvanecido");
+    Dado1.classList.toggle("cubo");
+    Dado2.classList.toggle("cubo");
+
     setTimeout(function(){
-        Animacion.classList.toggle("Banner-Inicia");
-    },4000);
+        Desvanecido.classList.toggle("Desvanecido");
+        Dado1.classList.toggle("cubo");
+        Dado2.classList.toggle("cubo");
+    },5000);     
 }
-*/
+
 /* Visibilidad de las columnas */
 function MostrarColumna1(){
     Columna1.style.display = "initial";
@@ -142,6 +149,7 @@ function CalcularDados(){
 /*Se inicio el juego*/
 function InicioJuego(){
     AnimacionInicio();
+    BloquearBotonIzq();
     setTimeout(() => {
         MostrarColumna1();
         MostrarColumna3();
@@ -197,6 +205,10 @@ function LanzarDados(){
 
     MensajeBotonIzq(2);
     MensajeBotonDer(3);
+    
+    AnimacionDados();
+
+    
 
     CalcularDados();
 }
